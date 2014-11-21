@@ -21,4 +21,14 @@ describe CommandFactory do
       expect(command).to be_a(ReportCommand)
     end
   end
+
+  describe '#move' do
+
+    it 'creates a move command' do
+      command_factory = CommandFactory.new
+      command = command_factory.move
+
+      expect(command).to be_a(MoveCommand)
+    end
+  end
 end
