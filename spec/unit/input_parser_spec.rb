@@ -14,6 +14,17 @@ describe InputParser do
       parser.parse('PLACE 0,0,NORTH')
     end
 
+    it 'parses a place command 2' do
+      command_factory = CommandFactory.new robot: Robot.new, table: Table.new, output: StringIO.new
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:place).with( position: Position.new(4, 0, :EAST) )
+
+      result = parser.parse('PLACE 4,0,EAST')
+      expect(result).to be_a(PlaceCommand)
+    end
+
     it 'parses a report command' do
       command_factory = double('CommandFactory')
 
