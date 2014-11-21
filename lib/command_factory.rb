@@ -17,6 +17,6 @@ class CommandFactory
   end
 
   def move
-    MoveCommand.new
+    MoveCommand.new robot: @robot
   end
 end
