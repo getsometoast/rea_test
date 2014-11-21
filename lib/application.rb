@@ -17,8 +17,6 @@ module REATest
 
       simulator = Simulator.new
       simulator.run(commands)
-
-      puts '0,0,NORTH'
     end
   end
 end
