@@ -41,4 +41,14 @@ describe CommandFactory do
       expect(command).to be_a(LeftCommand)
     end
   end
+
+  describe '#right' do
+
+    it 'create a left command' do
+      command_factory = CommandFactory.new
+      command = command_factory.right
+
+      expect(command).to be_a(RightCommand)
+    end
+  end
 end
