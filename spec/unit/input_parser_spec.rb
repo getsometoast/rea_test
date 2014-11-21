@@ -64,6 +64,16 @@ describe InputParser do
       parser.parse('MOVE')
     end
 
+    it 'parses a left command' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:left)
+
+      parser.parse('LEFT')
+    end
+
     it 'parses a multiple command' do
       place_command = double('PlaceCommand')
       report_command = double('ReportCommand')
