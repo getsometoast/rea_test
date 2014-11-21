@@ -9,4 +9,12 @@ describe 'rotating the robot left' do
       expect { REATest::Application.new(input_file).run }.to output(/0,0,WEST/).to_stdout
     end
   end
+
+  context 'heading west' do
+
+    it 'updates the robots position to heading south' do
+      input_file = 'spec/aat/data/left_from_west.txt'
+      expect { REATest::Application.new(input_file).run }.to output(/0,0,SOUTH/).to_stdout
+    end
+  end
 end
