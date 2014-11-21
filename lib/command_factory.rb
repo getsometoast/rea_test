@@ -1,5 +1,5 @@
 class CommandFactory
-  def create(**args)
+  def place(**args)
     PlaceCommand.new
   end
 end
