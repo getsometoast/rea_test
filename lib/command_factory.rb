@@ -20,4 +20,8 @@ class CommandFactory
     MoveCommand.new robot: @robot,
                     table: @table
   end
+
+  def left
+    LeftCommand.new
+  end
 end
