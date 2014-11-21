@@ -1,9 +1,10 @@
 class ReportCommand
   def initialize(**args)
+    @robot = args[:robot]
     @output = args[:output]
   end
 
   def execute
-    @output.puts '0,0,NORTH'
+    @output.puts @robot.position
   end
 end

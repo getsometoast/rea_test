@@ -6,12 +6,10 @@ describe ReportCommand do
     robot = double('Robot')
     output = double('$stdout')
 
-    robot.position = Position.new(0, 0, :NORTH)
-
     report = ReportCommand.new robot: robot,
                                output: output
 
-    expect(robot).to receive(:position)
+    expect(robot).to receive(:position) { Position.new(0, 0, :NORTH) }
     expect(output).to receive(:puts).with('0,0,NORTH')
 
     report.execute
