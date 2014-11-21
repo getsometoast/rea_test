@@ -10,6 +10,9 @@ class MoveCommand
   end
 
   def get_next_position(position)
-    Position.new(position.x, position.y + 1, position.heading)
+    case position.heading
+    when :NORTH then Position.new(position.x, position.y + 1, position.heading)
+    when :SOUTH then Position.new(position.x, position.y - 1, position.heading)
+    end
   end
 end
