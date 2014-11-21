@@ -11,10 +11,7 @@ describe InputParser do
 
       expect(command_factory).to receive(:create).with(PLACE: { position: Position.new(0, 0, :NORTH) })
 
-      commands = parser.parse('PLACE 0,0,NORTH')
-
-      expect(commands.count).to eq(1)
-      expect(commands.first).to be_a(PlaceCommand)
+      parser.parse('PLACE 0,0,NORTH')
     end
   end
 end
