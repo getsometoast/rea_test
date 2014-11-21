@@ -7,9 +7,10 @@ module REATest
     def run
       text = File.read(@input_file)
 
+      table = Table.new
       robot = Robot.new
 
-      command_factory = CommandFactory.new robot: robot
+      command_factory = CommandFactory.new robot: robot, table: table
       parser = InputParser.new command_factory: command_factory
 
       commands = parser.parse(text)
