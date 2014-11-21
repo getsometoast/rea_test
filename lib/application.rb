@@ -6,6 +6,16 @@ module REATest
 
     def run
 
+      text = File.read(@input_file)
+
+      command_factory = CommandFactory.new
+      parser = InputParser.new command_factory: command_factory
+
+      commands = parser.parse(text)
+
+      simulator = Simulator.new
+      simulator.run(commands)
+
       puts '0,0,NORTH'
     end
   end
