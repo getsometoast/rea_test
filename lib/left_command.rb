@@ -11,6 +11,8 @@ class LeftCommand
     case position.heading
     when :NORTH then Position.new(position.x, position.y, :WEST)
     when :WEST then Position.new(position.x, position.y, :SOUTH)
+    when :SOUTH then Position.new(position.x, position.y, :EAST)
+    when :EAST then Position.new(position.x, position.y, :NORTH)
     end
   end
 end
