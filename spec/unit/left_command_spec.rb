@@ -9,6 +9,7 @@ describe LeftCommand do
       it 'updates robots position to head west' do
         robot = double('Robot')
 
+        expect(robot).to receive(:position) { Position.new(0, 0, :NORTH) }
         expect(robot).to receive(:position=).with(Position.new(0, 0, :WEST))
 
         left_command = LeftCommand.new robot: robot
