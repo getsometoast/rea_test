@@ -21,7 +21,7 @@ describe InputParser do
 
       expect(command_factory).to receive(:place).with( position: Position.new(0, 1, :SOUTH) )
 
-      parser.parse('1, 0, SOUTH')
+      parser.parse('PLACE 0,1,SOUTH')
     end
 
     it 'parses a place command heading west' do
@@ -31,7 +31,7 @@ describe InputParser do
 
       expect(command_factory).to receive(:place).with( position: Position.new(1, 0, :WEST) )
 
-      parser.parse('1, 0, SOUTH')
+      parser.parse('PLACE 1,0,WEST')
     end
 
     it 'parses a place command heading east' do
@@ -41,7 +41,7 @@ describe InputParser do
 
       expect(command_factory).to receive(:place).with( position: Position.new(4, 0, :EAST) )
 
-      parser.parse('1, 0, SOUTH')
+      parser.parse('PLACE 4,0,EAST')
     end
 
     it 'parses a report command' do
