@@ -16,6 +16,7 @@ class MoveCommand
     when :NORTH then Position.new(position.x, position.y + 1, position.heading)
     when :SOUTH then Position.new(position.x, position.y - 1, position.heading)
     when :EAST then Position.new(position.x + 1, position.y, position.heading)
+    when :WEST then Position.new(position.x - 1, position.y, position.heading)
     end
   end
 end
