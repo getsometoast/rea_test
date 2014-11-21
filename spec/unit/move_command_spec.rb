@@ -12,7 +12,7 @@ describe MoveCommand do
 
         allow(table).to receive(:out_of_bounds?) { false }
         allow(robot).to receive(:position) { Position.new(0, 0, :NORTH) }
-        expect(robot).to receive(:position=) { Position.new(0, 1, :NORTH) }
+        expect(robot).to receive(:position=).with(Position.new(0, 1, :NORTH))
 
         move_command = MoveCommand.new robot: robot,
                                        table: table
@@ -42,7 +42,7 @@ describe MoveCommand do
 
         allow(table).to receive(:out_of_bounds?) { false }
         allow(robot).to receive(:position) { Position.new(0, 1, :SOUTH) }
-        expect(robot).to receive(:position=) { Position.new(0, 0, :SOUTH) }
+        expect(robot).to receive(:position=).with(Position.new(0, 0, :SOUTH))
 
         move_command = MoveCommand.new robot: robot,
                                        table: table
