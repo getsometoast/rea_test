@@ -5,6 +5,6 @@ class ReportCommand
   end
 
   def execute
-    @output.puts @robot.position.to_s
+    @output.puts @robot.position.to_s unless @robot.position.nil?
   end
 end

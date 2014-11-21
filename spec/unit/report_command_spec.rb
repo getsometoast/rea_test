@@ -13,7 +13,7 @@ describe ReportCommand do
         report = ReportCommand.new robot: robot,
                                    output: output
 
-        expect(robot).to receive(:position) { Position.new(0, 0, :NORTH) }
+        expect(robot).to receive(:position).twice { Position.new(0, 0, :NORTH) }
         expect(output).to receive(:puts).with('0,0,NORTH')
 
         report.execute
@@ -28,6 +28,8 @@ describe ReportCommand do
 
         report = ReportCommand.new robot: robot,
                                    output: output
+
+        allow(robot).to receive(:position)
 
         report.execute
       end
