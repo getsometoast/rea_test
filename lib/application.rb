@@ -5,22 +5,34 @@ module REATest
     end
 
     def run
-      text = File.read(@input_file)
+      text = read_input_from_file
+      command_factory = create_command_factory
+      commands = get_commands(command_factory, text)
+      run_simulator(commands)
+    end
 
+    def run_simulator(commands)
+      simulator = Simulator.new
+      simulator.run(commands)
+    end
+
+    def get_commands(command_factory, text)
+      parser = InputParser.new command_factory: command_factory
+      parser.parse(text)
+    end
+
+    def create_command_factory
       table = Table.new
       robot = Robot.new
       output = $stdout
 
-      command_factory = CommandFactory.new robot: robot,
-                                           table: table,
-                                           output: output
+      CommandFactory.new robot: robot,
+                         table: table,
+                         output: output
+    end
 
-      parser = InputParser.new command_factory: command_factory
-
-      commands = parser.parse(text)
-
-      simulator = Simulator.new
-      simulator.run(commands)
+    def read_input_from_file
+      File.read(@input_file)
     end
   end
 end
