@@ -22,6 +22,6 @@ class CommandFactory
   end
 
   def left
-    LeftCommand.new
+    LeftCommand.new robot: @robot
   end
 end
