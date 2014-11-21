@@ -1,9 +1,9 @@
 require 'rspec'
 
-describe Report do
+describe ReportCommand do
 
   it 'should report the robots current position' do
-    output = StringIO.new
+    output = double('$stdout')
 
     report = ReportCommand.new
 
