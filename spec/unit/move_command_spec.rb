@@ -10,7 +10,7 @@ describe MoveCommand do
 
         robot = double('Robot')
 
-        expect(robot).to receive(:position) { Position.new(0, 0, :NORTH) }
+        expect(robot).to receive(:position=) { Position.new(0, 1, :NORTH) }
 
         move_command = MoveCommand.new robot: robot
 
