@@ -9,6 +9,8 @@ class MoveCommand
     @robot.position = next_position unless @table.out_of_bounds? next_position
   end
 
+  private
+
   def get_next_position(position)
     case position.heading
     when :NORTH then Position.new(position.x, position.y + 1, position.heading)
