@@ -15,4 +15,8 @@ class CommandFactory
     ReportCommand.new robot: @robot,
                       output: @output
   end
+
+  def move
+    MoveCommand.new
+  end
 end
