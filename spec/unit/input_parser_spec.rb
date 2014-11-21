@@ -5,17 +5,13 @@ describe InputParser do
   describe '#parse' do
 
     it 'parses a place command' do
-      place_command = double('PlaceCommand')
       command_factory = double('CommandFactory')
 
       parser = InputParser.new command_factory: command_factory
 
-      expect(command_factory).to receive(:place).with( position: Position.new(0, 0, :NORTH) ) { place_command }
+      expect(command_factory).to receive(:place).with( position: Position.new(0, 0, :NORTH) )
 
-      result = parser.parse('PLACE 0,0,NORTH')
-
-      expect(result).to be_a(Array)
-      expect(result.count).to eq(1)
+      parser.parse('PLACE 0,0,NORTH')
     end
 
     it 'parses a report command' do
@@ -26,6 +22,19 @@ describe InputParser do
       expect(command_factory).to receive(:report)
 
       parser.parse('REPORT')
+    end
+
+    it 'parses a multiple command' do
+      place_command = double('PlaceCommand')
+      report_command = double('ReportCommand')
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:place) { place_command }
+      expect(command_factory).to receive(:report) { report_command }
+
+      parser.parse('PLACE 0,0,NORTH\nREPORT')
     end
   end
 end
