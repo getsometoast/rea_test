@@ -1,5 +1,5 @@
 class Simulator
   def run(commands)
-    commands.execute
+    commands.each { |command| command.execute }
   end
 end
