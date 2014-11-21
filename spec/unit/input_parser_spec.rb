@@ -7,7 +7,7 @@ describe InputParser do
     it 'parses a place command' do
       command_factory = double('CommandFactory')
 
-      parser = Parser.new command_factory: command_factory
+      parser = InputParser.new command_factory: command_factory
 
       expect(command_factory).to receive(:create).with(type: :PLACE,
                                                        parameters: { position: Position.new(0, 0, :NORTH) })

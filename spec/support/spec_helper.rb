@@ -1,3 +1,5 @@
 require_relative '../../lib/application'
 require_relative '../../lib/input_parser'
+require_relative '../../lib/position'
+require_relative '../../lib/place_command'
 require 'rspec'
