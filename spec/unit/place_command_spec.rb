@@ -4,14 +4,34 @@ describe PlaceCommand do
 
   describe '#execute' do
 
-    it 'should update the robots current position' do
-      robot = double('Robot')
-      position = Position.new(0, 0, :NORTH)
-      place = PlaceCommand.new robot: robot, position: position
+    context 'position within table bounds' do
 
-      expect(robot).to receive(:position=).with(position)
+      it 'should update the robots current position' do
+        robot = double('Robot')
+        position = Position.new(0, 0, :NORTH)
+        place = PlaceCommand.new robot: robot, position: position
 
-      place.execute
+        expect(robot).to receive(:position=).with(position)
+
+        place.execute
+      end
+    end
+
+    context 'position is outside table bounds' do
+
+      it 'should not update the robots current position' do
+        robot = double('Robot')
+        table = doublt('Table')
+        position = Position.new(-1, -1, :NORTH)
+
+        place = PlaceCommand.new robot: robot,
+                                 position: position,
+                                 table: table
+
+        expect(table).to receive(:out_of_bounds?).with(position)
+
+        place.execute
+      end
     end
   end
 end

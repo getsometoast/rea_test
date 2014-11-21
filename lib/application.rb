@@ -5,7 +5,6 @@ module REATest
     end
 
     def run
-
       text = File.read(@input_file)
 
       robot = Robot.new
