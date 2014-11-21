@@ -22,10 +22,11 @@ describe MoveCommand do
       it 'does not move the robot off the table' do
         robot = double('Robot')
         table = double('Table')
-        current_position = Position.new(0, 5, :NORTH)
+        current_position = Position.new(0, 4, :NORTH)
+        next_position = Position.new(0, 5, :NORTH)
 
         expect(robot).to receive(:position) { current_position }
-        expect(table).to receive(:out_of_bounds?).with(current_position) { true }
+        expect(table).to receive(:out_of_bounds?).with(next_position) { true }
 
         move_command = MoveCommand.new robot: robot,
                                        table: table

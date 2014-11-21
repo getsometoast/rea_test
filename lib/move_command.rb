@@ -5,7 +5,8 @@ class MoveCommand
   end
 
   def execute
-    @robot.position = get_next_position(@robot.position) unless @table.out_of_bounds? @robot.position
+    next_position = get_next_position(@robot.position)
+    @robot.position = next_position unless @table.out_of_bounds? next_position
   end
 
   def get_next_position(position)
