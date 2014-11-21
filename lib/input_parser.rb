@@ -21,6 +21,7 @@ class InputParser
     when 'REPORT' then @command_factory.report
     when 'MOVE' then @command_factory.move
     when 'LEFT' then @command_factory.left
+    when 'RIGHT' then @command_factory.right
     end
   end
 
