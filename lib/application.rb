@@ -9,8 +9,12 @@ module REATest
 
       table = Table.new
       robot = Robot.new
+      output = $stdout
 
-      command_factory = CommandFactory.new robot: robot, table: table
+      command_factory = CommandFactory.new robot: robot,
+                                           table: table,
+                                           output: output
+      
       parser = InputParser.new command_factory: command_factory
 
       commands = parser.parse(text)
