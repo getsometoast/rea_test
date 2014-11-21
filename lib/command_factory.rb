@@ -12,6 +12,7 @@ class CommandFactory
   end
 
   def report
-    ReportCommand.new output: @output
+    ReportCommand.new robot: @robot,
+                      output: @output
   end
 end
