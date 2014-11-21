@@ -2,12 +2,14 @@ require_relative '../support/spec_helper'
 
 describe CommandFactory do
 
+  before :each do
+    @command_factory = CommandFactory.new
+  end
+
   describe '#place' do
 
     it 'creates a place command' do
-      command_factory = CommandFactory.new
-      command = command_factory.place position: Position.new(0, 0, :NORTH)
-
+      command = @command_factory.place position: Position.new(0, 0, :NORTH)
       expect(command).to be_a(PlaceCommand)
     end
   end
@@ -15,9 +17,7 @@ describe CommandFactory do
   describe '#report' do
 
     it 'creates a report command' do
-      command_factory = CommandFactory.new
-      command = command_factory.report
-
+      command = @command_factory.report
       expect(command).to be_a(ReportCommand)
     end
   end
@@ -25,9 +25,7 @@ describe CommandFactory do
   describe '#move' do
 
     it 'creates a move command' do
-      command_factory = CommandFactory.new
-      command = command_factory.move
-
+      command = @command_factory.move
       expect(command).to be_a(MoveCommand)
     end
   end
@@ -35,9 +33,7 @@ describe CommandFactory do
   describe '#left' do
 
     it 'create a left command' do
-      command_factory = CommandFactory.new
-      command = command_factory.left
-
+      command = @command_factory.left
       expect(command).to be_a(LeftCommand)
     end
   end
@@ -45,9 +41,7 @@ describe CommandFactory do
   describe '#right' do
 
     it 'create a left command' do
-      command_factory = CommandFactory.new
-      command = command_factory.right
-
+      command = @command_factory.right
       expect(command).to be_a(RightCommand)
     end
   end

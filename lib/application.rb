@@ -11,6 +11,8 @@ module REATest
       run_simulator(commands)
     end
 
+    private
+
     def run_simulator(commands)
       simulator = Simulator.new
       simulator.run(commands)
