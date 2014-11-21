@@ -8,7 +8,9 @@ module REATest
 
       text = File.read(@input_file)
 
-      command_factory = CommandFactory.new
+      robot = Robot.new
+
+      command_factory = CommandFactory.new robot: robot
       parser = InputParser.new command_factory: command_factory
 
       commands = parser.parse(text)
