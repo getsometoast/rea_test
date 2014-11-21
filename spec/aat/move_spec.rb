@@ -23,7 +23,7 @@ describe 'moving the robot' do
     end
 
     it 'does not move off the table' do
-      input_file = 'spec/aat/data/move_south.txt'
+      input_file = 'spec/aat/data/move_south_off.txt'
       expect { REATest::Application.new(input_file).run }.to output(/0,0,SOUTH/).to_stdout
     end
   end
