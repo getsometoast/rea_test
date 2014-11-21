@@ -11,7 +11,7 @@ describe MoveCommand do
         table = double('Table')
 
         allow(table).to receive(:out_of_bounds?) { false }
-        allow(robot).to receive(:position)
+        allow(robot).to receive(:position) { Position.new(0, 0, :NORTH) }
         expect(robot).to receive(:position=) { Position.new(0, 1, :NORTH) }
 
         move_command = MoveCommand.new robot: robot,
