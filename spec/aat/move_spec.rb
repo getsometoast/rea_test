@@ -27,4 +27,17 @@ describe 'moving the robot' do
       expect { REATest::Application.new(input_file).run }.to output(/0,0,SOUTH/).to_stdout
     end
   end
+
+  context 'when facing east' do
+
+    it 'moves the robot forward east' do
+      input_file = 'spec/aat/data/move_east.txt'
+      expect { REATest::Application.new(input_file).run }.to output(/1,0,EAST/).to_stdout
+    end
+
+    it 'does not move off the table' do
+      input_file = 'spec/aat/data/move_east_off.txt'
+      expect { REATest::Application.new(input_file).run }.to output(/4,0,EAST/).to_stdout
+    end
+  end
 end
