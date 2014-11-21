@@ -4,6 +4,9 @@ class InputParser
   end
 
   def parse(text)
+
+    @command_factory.create PLACE: { position: Position.new(0, 0, :NORTH)}
+
     return []
   end
 end
