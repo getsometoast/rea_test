@@ -4,7 +4,7 @@ describe InputParser do
 
   describe '#parse' do
 
-    it 'parses a place command' do
+    it 'parses a place command heading north' do
       command_factory = double('CommandFactory')
 
       parser = InputParser.new command_factory: command_factory
@@ -12,6 +12,36 @@ describe InputParser do
       expect(command_factory).to receive(:place).with( position: Position.new(0, 0, :NORTH) )
 
       parser.parse('PLACE 0,0,NORTH')
+    end
+
+    it 'parses a place command heading south' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:place).with( position: Position.new(0, 1, :SOUTH) )
+
+      parser.parse('1, 0, SOUTH')
+    end
+
+    it 'parses a place command heading west' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:place).with( position: Position.new(1, 0, :WEST) )
+
+      parser.parse('1, 0, SOUTH')
+    end
+
+    it 'parses a place command heading east' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:place).with( position: Position.new(4, 0, :EAST) )
+
+      parser.parse('1, 0, SOUTH')
     end
 
     it 'parses a report command' do
