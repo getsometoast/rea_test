@@ -8,9 +8,14 @@ describe PlaceCommand do
 
       it 'should update the robots current position' do
         robot = double('Robot')
+        table = double('Table')
         position = Position.new(0, 0, :NORTH)
-        place = PlaceCommand.new robot: robot, position: position
 
+        place = PlaceCommand.new robot: robot,
+                                 position: position,
+                                 table: table
+
+        allow(table).to receive(:out_of_bounds?).with(position) { false }
         expect(robot).to receive(:position=).with(position)
 
         place.execute
@@ -21,14 +26,14 @@ describe PlaceCommand do
 
       it 'should not update the robots current position' do
         robot = double('Robot')
-        table = doublt('Table')
+        table = double('Table')
         position = Position.new(-1, -1, :NORTH)
 
         place = PlaceCommand.new robot: robot,
                                  position: position,
                                  table: table
 
-        expect(table).to receive(:out_of_bounds?).with(position)
+        expect(table).to receive(:out_of_bounds?).with(position) { true }
 
         place.execute
       end
