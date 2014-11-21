@@ -34,7 +34,7 @@ describe InputParser do
       expect(command_factory).to receive(:place) { place_command }
       expect(command_factory).to receive(:report) { report_command }
 
-      result = parser.parse('PLACE 0,0,NORTH\nREPORT')
+      result = parser.parse("PLACE 0,0,NORTH\nREPORT")
 
       expect(result).to be_a(Array)
       expect(result.count).to eq(2)
