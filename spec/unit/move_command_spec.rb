@@ -113,7 +113,7 @@ describe MoveCommand do
         robot = double('Robot')
         table = double('Table')
         current_position = Position.new(0, 0, :WEST)
-        next_position = Position.new(0, 0, :WEST)
+        next_position = Position.new(-1, 0, :WEST)
 
         expect(robot).to receive(:position) { current_position }
         expect(table).to receive(:out_of_bounds?).with(next_position) { true }
