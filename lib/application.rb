@@ -5,6 +5,7 @@ module REATest
     end
 
     def run
+
       puts '0,0,NORTH'
     end
   end
