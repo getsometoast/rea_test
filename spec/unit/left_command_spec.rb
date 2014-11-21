@@ -17,5 +17,19 @@ describe LeftCommand do
         left_command.execute
       end
     end
+
+    context 'currently heading west' do
+
+      it 'updates robots position to head south' do
+        robot = double('Robot')
+
+        expect(robot).to receive(:position) { Position.new(0, 0, :WEST) }
+        expect(robot).to receive(:position=).with(Position.new(0, 0, :SOUTH))
+
+        left_command = LeftCommand.new robot: robot
+
+        left_command.execute
+      end
+    end
   end
 end
