@@ -20,6 +20,7 @@ class InputParser
     when 'PLACE' then @command_factory.place position: get_position_from_line(line)
     when 'REPORT' then @command_factory.report
     when 'MOVE' then @command_factory.move
+    when 'LEFT' then @command_factory.left
     end
   end
 
