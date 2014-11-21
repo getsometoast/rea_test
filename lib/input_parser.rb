@@ -18,9 +18,17 @@ class InputParser
 
     case type
     when 'PLACE' then
-      @command_factory.place position: Position.new(0, 0, :NORTH)
+      @command_factory.place position: get_position_from_line(line)
     when 'REPORT' then
       @command_factory.report
     end
+  end
+
+  def get_position_from_line(line)
+    tokens = line.split(/,/)
+
+    Position.new(tokens[0].to_i,
+                 tokens[1].to_i,
+                 tokens[2].to_sym)
   end
 end

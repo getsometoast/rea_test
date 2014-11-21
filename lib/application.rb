@@ -14,7 +14,7 @@ module REATest
       command_factory = CommandFactory.new robot: robot,
                                            table: table,
                                            output: output
-      
+
       parser = InputParser.new command_factory: command_factory
 
       commands = parser.parse(text)
