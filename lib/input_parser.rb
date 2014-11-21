@@ -4,8 +4,11 @@ class InputParser
   end
 
   def parse(text)
-    type = text.split(/\s/)[0].to_sym
+    type = text.split(/\s/)[0]
 
-    @command_factory.place  position: Position.new(0, 0, :NORTH)
+    case type
+    when 'PLACE' then @command_factory.place  position: Position.new(0, 0, :NORTH)
+    when 'REPORT' then @command_factory.report
+    end
   end
 end
