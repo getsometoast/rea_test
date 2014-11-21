@@ -9,8 +9,7 @@ describe InputParser do
 
       parser = InputParser.new command_factory: command_factory
 
-      expect(command_factory).to receive(:create).with(type: :PLACE,
-                                                       parameters: { position: Position.new(0, 0, :NORTH) })
+      expect(command_factory).to receive(:create).with(PLACE: { position: Position.new(0, 0, :NORTH) })
 
       commands = parser.parse('PLACE 0,0,NORTH')
 

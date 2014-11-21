@@ -10,4 +10,3 @@ module REATest
     end
   end
 end
-
