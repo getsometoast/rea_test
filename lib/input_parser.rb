@@ -17,10 +17,9 @@ class InputParser
     type = line.split(/\s/)[0]
 
     case type
-    when 'PLACE' then
-      @command_factory.place position: get_position_from_line(line)
-    when 'REPORT' then
-      @command_factory.report
+    when 'PLACE' then @command_factory.place position: get_position_from_line(line)
+    when 'REPORT' then @command_factory.report
+    when 'MOVE' then @command_factory.move
     end
   end
 
