@@ -10,4 +10,8 @@ class Position
     @y == other.y &&
     @heading == other.heading
   end
+
+  def to_s
+    "#{@x},#{@y},#{@heading}"
+  end
 end
