@@ -74,6 +74,16 @@ describe InputParser do
       parser.parse('LEFT')
     end
 
+    it 'parses a right command' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect(command_factory).to receive(:right)
+
+      parser.parse('RIGHT')
+    end
+
     it 'parses a multiple command' do
       place_command = double('PlaceCommand')
       report_command = double('ReportCommand')
