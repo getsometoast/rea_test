@@ -14,16 +14,6 @@ describe InputParser do
       parser.parse('PLACE 0,0,NORTH')
     end
 
-    it 'parses a place command with a number 4 in the position coordinates' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:place).with( position: Position.new(4, 0, :EAST) )
-
-      parser.parse('PLACE 4,0,EAST')
-    end
-
     it 'parses a report command' do
       command_factory = double('CommandFactory')
 
