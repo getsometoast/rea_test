@@ -9,4 +9,12 @@ describe 'placing the robot' do
       expect { REATest::Application.new(input_file).run }.to output(/0,0,NORTH/).to_stdout
     end
   end
+
+  context 'off the table' do
+
+    it 'should ignore the command' do
+      input_file = 'spec/aat/data/place_off_table.txt'
+      expect { REATest::Application.new(input_file).run }.to output('').to_stdout
+    end
+  end
 end
