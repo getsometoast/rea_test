@@ -5,7 +5,7 @@ describe 'placing the robot' do
   context 'on the table' do
 
     it 'should set the robots current position' do
-      input_file = 'spec/aat/data/place_on_table.txt'
+      input_file = 'spec/aat/data/place/place_on_table.txt'
       expect { REATest::Application.new(input_file).run }.to output(/0,0,NORTH/).to_stdout
     end
   end
@@ -13,7 +13,7 @@ describe 'placing the robot' do
   context 'off the table' do
 
     it 'should ignore the command' do
-      input_file = 'spec/aat/data/place_off_table.txt'
+      input_file = 'spec/aat/data/place/place_off_table.txt'
       expect { REATest::Application.new(input_file).run }.to output('').to_stdout
     end
   end
