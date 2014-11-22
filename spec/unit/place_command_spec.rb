@@ -34,7 +34,8 @@ describe PlaceCommand do
                                  table: table
 
         expect(table).to receive(:out_of_bounds?).with(position) { true }
-
+        expect(robot).to_not receive(:position=).with(position)
+        
         place.execute
       end
     end
