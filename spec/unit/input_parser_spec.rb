@@ -53,5 +53,13 @@ describe InputParser do
       expect(result.first).to eq(place_command)
       expect(result.last).to eq(report_command)
     end
+
+    it 'fails on badly formed left command' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect { parser.parse('lift') }.to raise_error(Errors::BadlyFormedCommand)
+    end
   end
 end
