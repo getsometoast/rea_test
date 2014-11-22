@@ -2,36 +2,32 @@ require_relative '../support/spec_helper'
 
 describe ReportCommand do
 
+  before :each do
+    @robot = double('Robot')
+    @output = double('$stdout')
+
+    @report = ReportCommand.new robot: @robot,
+                               output: @output
+  end
+
   describe '#execute' do
 
     context 'robot is on the table' do
 
       it 'reports the robots current position' do
-        robot = double('Robot')
-        output = double('$stdout')
+        expect(@robot).to receive(:position).twice { Position.new(0, 0, :NORTH) }
+        expect(@output).to receive(:puts).with('0,0,NORTH')
 
-        report = ReportCommand.new robot: robot,
-                                   output: output
-
-        expect(robot).to receive(:position).twice { Position.new(0, 0, :NORTH) }
-        expect(output).to receive(:puts).with('0,0,NORTH')
-
-        report.execute
+        @report.execute
       end
     end
 
     context 'robot is off the table' do
 
       it 'ignores the command' do
-        robot = double('Robot')
-        output = double('$stdout')
+        allow(@robot).to receive(:position)
 
-        report = ReportCommand.new robot: robot,
-                                   output: output
-
-        allow(robot).to receive(:position)
-
-        report.execute
+        @report.execute
       end
     end
   end
