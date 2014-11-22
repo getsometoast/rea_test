@@ -1,9 +1,9 @@
 require_relative '../support/spec_helper'
 
-describe Commands::CommandFactory do
+describe Commands::Factory do
 
   before :each do
-    @command_factory = Commands::CommandFactory.new
+    @command_factory = Commands::Factory.new
   end
 
   describe '#place' do

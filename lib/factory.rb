@@ -1,5 +1,5 @@
 module Commands
-  class CommandFactory
+  class Factory
     def initialize(**args)
       @robot = args[:robot]
       @table = args[:table]

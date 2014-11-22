@@ -28,7 +28,7 @@ module REATest
       robot = Robot.new
       output = $stdout
 
-      Commands::CommandFactory.new robot: robot,
+      Commands::Factory.new robot: robot,
                                    table: table,
                                    output: output
     end
