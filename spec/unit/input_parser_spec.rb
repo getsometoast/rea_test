@@ -5,43 +5,19 @@ describe InputParser do
   describe '#parse' do
 
     it 'parses a place command heading north' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:place).with( position: Position.new(0, 0, :NORTH) )
-
-      parser.parse('PLACE 0,0,NORTH')
+      it_parses_a_place_command input: 'PLACE 0,0,NORTH', position: Position.new(0, 0, :NORTH)
     end
 
     it 'parses a place command heading south' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:place).with( position: Position.new(0, 1, :SOUTH) )
-
-      parser.parse('PLACE 0,1,SOUTH')
+      it_parses_a_place_command input: 'PLACE 0,1,SOUTH', position: Position.new(0, 1, :SOUTH)
     end
 
     it 'parses a place command heading west' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:place).with( position: Position.new(1, 0, :WEST) )
-
-      parser.parse('PLACE 1,0,WEST')
+      it_parses_a_place_command input: 'PLACE 1,0,WEST', position: Position.new(1, 0, :WEST)
     end
 
     it 'parses a place command heading east' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:place).with( position: Position.new(4, 0, :EAST) )
-
-      parser.parse('PLACE 4,0,EAST')
+      it_parses_a_place_command input: 'PLACE 4,0,EAST', position: Position.new(4, 0, :EAST)
     end
 
     it 'parses a report command' do

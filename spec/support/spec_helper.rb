@@ -12,9 +12,12 @@ require_relative '../../lib/left_command'
 require_relative '../../lib/right_command'
 require_relative 'rotate_command_helpers'
 require_relative 'move_command_helpers'
+require_relative 'input_parser_helpers'
 require 'rspec'
 
 RSpec.configure do |config|
   config.include(RotateCommandHelpers)
   config.include(MoveCommandHelpers)
+  config.include(InputParserHelpers)
+
 end
