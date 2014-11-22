@@ -8,4 +8,14 @@ module InputParserHelpers
 
     parser.parse(args[:input])
   end
+
+  def it_parses_a_command(**args)
+    command_factory = double('CommandFactory')
+
+    parser = InputParser.new command_factory: command_factory
+
+    expect(command_factory).to receive(args[:type])
+
+    parser.parse(args[:input])
+  end
 end

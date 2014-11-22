@@ -21,43 +21,19 @@ describe InputParser do
     end
 
     it 'parses a report command' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:report)
-
-      parser.parse('REPORT')
+      it_parses_a_command type: :report, input: 'REPORT'
     end
 
     it 'parses a move command' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:move)
-
-      parser.parse('MOVE')
+      it_parses_a_command type: :move, input: 'MOVE'
     end
 
     it 'parses a left command' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:left)
-
-      parser.parse('LEFT')
+      it_parses_a_command type: :left, input: 'LEFT'
     end
 
     it 'parses a right command' do
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:right)
-
-      parser.parse('RIGHT')
+      it_parses_a_command type: :right, input: 'RIGHT'
     end
 
     it 'parses a multiple command' do
