@@ -8,7 +8,7 @@ module REATest
       text = read_input_from_file
       command_factory = create_command_factory
       commands = get_commands(command_factory, text)
-      run_simulator(commands)
+      run_simulator(commands) unless commands.nil?
     end
 
     private
