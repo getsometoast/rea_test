@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe RightCommand do
+describe Commands::RightCommand do
 
   describe '#execute' do
     context 'currently heading north' do

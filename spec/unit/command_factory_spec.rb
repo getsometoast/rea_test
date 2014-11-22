@@ -10,7 +10,7 @@ describe CommandFactory do
 
     it 'creates a place command' do
       command = @command_factory.place position: Position.new(0, 0, :NORTH)
-      expect(command).to be_a(PlaceCommand)
+      expect(command).to be_a(Commands::PlaceCommand)
     end
   end
 
@@ -18,7 +18,7 @@ describe CommandFactory do
 
     it 'creates a report command' do
       command = @command_factory.report
-      expect(command).to be_a(ReportCommand)
+      expect(command).to be_a(Commands::ReportCommand)
     end
   end
 
@@ -26,7 +26,7 @@ describe CommandFactory do
 
     it 'creates a move command' do
       command = @command_factory.move
-      expect(command).to be_a(MoveCommand)
+      expect(command).to be_a(Commands::MoveCommand)
     end
   end
 
@@ -34,7 +34,7 @@ describe CommandFactory do
 
     it 'create a left command' do
       command = @command_factory.left
-      expect(command).to be_a(LeftCommand)
+      expect(command).to be_a(Commands::LeftCommand)
     end
   end
 
@@ -42,7 +42,7 @@ describe CommandFactory do
 
     it 'create a left command' do
       command = @command_factory.right
-      expect(command).to be_a(RightCommand)
+      expect(command).to be_a(Commands::RightCommand)
     end
   end
 end

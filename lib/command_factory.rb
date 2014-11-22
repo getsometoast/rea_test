@@ -6,26 +6,26 @@ class CommandFactory
   end
 
   def place(**args)
-    PlaceCommand.new robot: @robot,
-                     position: args[:position],
-                     table: @table
+    Commands::PlaceCommand.new robot: @robot,
+                               position: args[:position],
+                               table: @table
   end
 
   def report
-    ReportCommand.new robot: @robot,
-                      output: @output
+    Commands::ReportCommand.new robot: @robot,
+                                output: @output
   end
 
   def move
-    MoveCommand.new robot: @robot,
-                    table: @table
+    Commands::MoveCommand.new robot: @robot,
+                              table: @table
   end
 
   def left
-    LeftCommand.new robot: @robot
+    Commands::LeftCommand.new robot: @robot
   end
 
   def right
-    RightCommand.new robot: @robot
+    Commands::RightCommand.new robot: @robot
   end
 end

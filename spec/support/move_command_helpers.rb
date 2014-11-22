@@ -7,8 +7,8 @@ module MoveCommandHelpers
     allow(robot).to receive(:position) { args[:from] }
     expect(robot).to receive(:position=).with(args[:to])
 
-    move_command = MoveCommand.new robot: robot,
-                                   table: table
+    move_command = Commands::MoveCommand.new robot: robot,
+                                             table: table
     move_command.execute
   end
 
@@ -21,8 +21,8 @@ module MoveCommandHelpers
     expect(robot).to receive(:position) { current_position }
     expect(table).to receive(:out_of_bounds?).with(next_position) { true }
 
-    move_command = MoveCommand.new robot: robot,
-                                   table: table
+    move_command = Commands::MoveCommand.new robot: robot,
+                                             table: table
     move_command.execute
   end
 end

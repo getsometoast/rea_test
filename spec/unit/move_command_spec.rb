@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe MoveCommand do
+describe Commands::MoveCommand do
 
   describe '#execute' do
 

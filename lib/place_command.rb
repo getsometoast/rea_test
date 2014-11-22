@@ -1,11 +1,13 @@
-class PlaceCommand
-  def initialize(**args)
-    @robot = args[:robot]
-    @position = args[:position]
-    @table = args[:table]
-  end
+module Commands
+  class PlaceCommand
+    def initialize(**args)
+      @robot = args[:robot]
+      @position = args[:position]
+      @table = args[:table]
+    end
 
-  def execute
-    @robot.position = @position unless @table.out_of_bounds? @position
+    def execute
+      @robot.position = @position unless @table.out_of_bounds? @position
+    end
   end
 end

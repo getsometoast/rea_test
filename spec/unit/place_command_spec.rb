@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe PlaceCommand do
+describe Commands::PlaceCommand do
 
   before :each do
     @robot = double('Robot')
@@ -14,9 +14,9 @@ describe PlaceCommand do
       it 'should update the robots current position' do
         position = Position.new(0, 0, :NORTH)
 
-        place = PlaceCommand.new robot: @robot,
-                                 position: position,
-                                 table: @table
+        place = Commands::PlaceCommand.new robot: @robot,
+                                           position: position,
+                                           table: @table
 
         allow(@table).to receive(:out_of_bounds?).with(position) { false }
         expect(@robot).to receive(:position=).with(position)
@@ -30,9 +30,9 @@ describe PlaceCommand do
       it 'should not update the robots current position' do
         position = Position.new(-1, -1, :NORTH)
 
-        place = PlaceCommand.new robot: @robot,
-                                 position: position,
-                                 table: @table
+        place = Commands::PlaceCommand.new robot: @robot,
+                                           position: position,
+                                           table: @table
 
         expect(@table).to receive(:out_of_bounds?).with(position) { true }
         expect(@robot).to_not receive(:position=).with(position)
