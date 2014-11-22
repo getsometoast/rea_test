@@ -20,7 +20,12 @@ module REATest
 
     def get_commands(command_factory, text)
       parser = InputParser.new command_factory: command_factory
-      parser.parse(text)
+
+      begin
+        parser.parse(text)
+      rescue Errors::BadlyFormedCommand
+        puts 'Badly formed command in input file'
+      end
     end
 
     def create_command_factory

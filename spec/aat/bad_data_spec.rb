@@ -6,7 +6,7 @@ describe 'parsing commands' do
 
     it 'should ignore the command' do
       input_file = 'spec/aat/data/bad_data/left_command.txt'
-      expect { REATest::Application.new(input_file).run }.to output(/0,0,NORTH/).to_stdout
+      expect { REATest::Application.new(input_file).run }.to output(/Badly formed command in input file/).to_stdout
     end
   end
 end
