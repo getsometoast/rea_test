@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe Commands::PlaceCommand do
+describe Commands::Place do
 
   before :each do
     @robot = double('Robot')
@@ -14,7 +14,7 @@ describe Commands::PlaceCommand do
       it 'should update the robots current position' do
         position = Position.new(0, 0, :NORTH)
 
-        place = Commands::PlaceCommand.new robot: @robot,
+        place = Commands::Place.new robot: @robot,
                                            position: position,
                                            table: @table
 
@@ -30,7 +30,7 @@ describe Commands::PlaceCommand do
       it 'should not update the robots current position' do
         position = Position.new(-1, -1, :NORTH)
 
-        place = Commands::PlaceCommand.new robot: @robot,
+        place = Commands::Place.new robot: @robot,
                                            position: position,
                                            table: @table
 

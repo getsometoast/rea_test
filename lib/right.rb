@@ -1,5 +1,5 @@
 module Commands
-  class RightCommand
+  class Right
     def initialize(**args)
       @robot = args[:robot]
     end

@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe Commands::LeftCommand do
+describe Commands::Left do
 
   describe '#execute' do
 

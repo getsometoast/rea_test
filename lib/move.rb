@@ -1,5 +1,5 @@
 module Commands
-  class MoveCommand
+  class Move
     def initialize(**args)
       @robot = args[:robot]
       @table = args[:table]

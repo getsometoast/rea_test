@@ -1,12 +1,12 @@
 require_relative '../support/spec_helper'
 
-describe Commands::ReportCommand do
+describe Commands::Report do
 
   before :each do
     @robot = double('Robot')
     @output = double('$stdout')
 
-    @report = Commands::ReportCommand.new robot: @robot,
+    @report = Commands::Report.new robot: @robot,
                                           output: @output
   end
 

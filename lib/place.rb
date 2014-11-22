@@ -1,5 +1,5 @@
 module Commands
-  class PlaceCommand
+  class Place
     def initialize(**args)
       @robot = args[:robot]
       @position = args[:position]

@@ -1,5 +1,5 @@
 module Commands
-  class ReportCommand
+  class Report
     def initialize(**args)
       @robot = args[:robot]
       @output = args[:output]
