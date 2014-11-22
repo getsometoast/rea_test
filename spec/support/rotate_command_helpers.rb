@@ -20,5 +20,4 @@ module RotateCommandHelpers
 
     right_command.execute
   end
-
 end
