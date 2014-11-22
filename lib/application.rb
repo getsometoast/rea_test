@@ -28,9 +28,9 @@ module REATest
       robot = Robot.new
       output = $stdout
 
-      CommandFactory.new robot: robot,
-                         table: table,
-                         output: output
+      Commands::CommandFactory.new robot: robot,
+                                   table: table,
+                                   output: output
     end
 
     def read_input_from_file
