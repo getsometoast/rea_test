@@ -12,6 +12,7 @@ require_relative '../../lib/commands/left'
 require_relative '../../lib/commands/right'
 require_relative 'command_helpers'
 require_relative 'input_parser_helpers'
+require_relative '../../lib/badly_formed_command'
 require 'rspec'
 
 RSpec.configure do |config|

@@ -16,6 +16,8 @@ class InputParser
   def get_command_from(line)
     type = line.split(/\s/)[0]
 
+    fail Errors::BadlyFormedCommand unless type =~ /LEFT|RIGHT|PLACE|MOVE|REPORT/
+    
     case type
     when 'PLACE' then @command_factory.place position: get_position_from_line(line)
     when 'REPORT' then @command_factory.report
