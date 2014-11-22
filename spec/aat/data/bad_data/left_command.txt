@@ -1,0 +1,11 @@
+PLACE 0,0,NORTH
+LEFt
+LeFt
+left
+lEft
+lefT
+LIFT
+LEFT 1
+LEFTT
+LEFT LEFT
+REPORT
