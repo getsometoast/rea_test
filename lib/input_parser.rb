@@ -30,6 +30,8 @@ class InputParser
   def get_position_from_line(line)
     tokens = line.split(/\s/)[1].split(',')
 
+    fail Errors::BadlyFormedCommand unless tokens[2] =~ /NORTH|SOUTH|EAST|WEST/
+
     Position.new(tokens[0].to_i,
                  tokens[1].to_i,
                  tokens[2].to_sym)
