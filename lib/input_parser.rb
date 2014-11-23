@@ -17,13 +17,13 @@ class InputParser
     type = line.split(/\s/)[0]
 
     fail Errors::BadlyFormedCommand unless type =~ /LEFT|RIGHT|PLACE|MOVE|REPORT/
-    
-    case type
-    when 'PLACE' then @command_factory.place position: get_position_from_line(line)
-    when 'REPORT' then @command_factory.report
-    when 'MOVE' then @command_factory.move
-    when 'LEFT' then @command_factory.left
-    when 'RIGHT' then @command_factory.right
+
+    case type.to_sym
+    when :PLACE then @command_factory.place position: get_position_from_line(line)
+    when :REPORT then @command_factory.report
+    when :MOVE then @command_factory.move
+    when :LEFT then @command_factory.left
+    when :RIGHT then @command_factory.right
     end
   end
 

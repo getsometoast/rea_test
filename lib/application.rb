@@ -8,6 +8,7 @@ module REATest
       text = read_input_from_file
       command_factory = create_command_factory
       commands = get_commands(command_factory, text)
+
       run_simulator(commands) unless commands.nil?
     end
 
@@ -34,8 +35,8 @@ module REATest
       output = $stdout
 
       Commands::Factory.new robot: robot,
-                                   table: table,
-                                   output: output
+                            table: table,
+                            output: output
     end
 
     def read_input_from_file
