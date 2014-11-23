@@ -61,5 +61,37 @@ describe InputParser do
 
       expect { parser.parse('lift') }.to raise_error(Errors::BadlyFormedCommand)
     end
+
+    it 'fails on badly formed right command' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect { parser.parse('right') }.to raise_error(Errors::BadlyFormedCommand)
+    end
+
+    it 'fails on badly formed move command' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect { parser.parse('move') }.to raise_error(Errors::BadlyFormedCommand)
+    end
+
+    it 'fails on badly formed report command' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect { parser.parse('report') }.to raise_error(Errors::BadlyFormedCommand)
+    end
+
+    it 'fails on badly formed place position' do
+      command_factory = double('CommandFactory')
+
+      parser = InputParser.new command_factory: command_factory
+
+      expect { parser.parse('PLACE 1,2,NORTH,') }.to raise_error(Errors::BadlyFormedCommand)
+    end
   end
 end
