@@ -36,41 +36,15 @@ describe InputParser do
       it_parses_a_command type: :right, input: 'RIGHT'
     end
 
-    it 'parses a multiple command' do
-      place_command = double('PlaceCommand')
-      report_command = double('ReportCommand')
-      command_factory = double('CommandFactory')
-
-      parser = InputParser.new command_factory: command_factory
-
-      expect(command_factory).to receive(:place) { place_command }
-      expect(command_factory).to receive(:report) { report_command }
-
-      result = parser.parse("PLACE 0,0,NORTH\nREPORT")
-
-      expect(result).to be_a(Array)
-      expect(result.count).to eq(2)
-      expect(result.first).to eq(place_command)
-      expect(result.last).to eq(report_command)
-    end
-
-    it 'fails on badly formed left command' do
+    it 'fails on badly formed command - lowercase' do
       it_fails_on_badly_formed_command_text('left')
     end
 
-    it 'fails on badly formed right command' do
-      it_fails_on_badly_formed_command_text('right')
+    it 'fails on badly formed command - extra characters' do
+      it_fails_on_badly_formed_command_text('report s')
     end
 
-    it 'fails on badly formed move command' do
-      it_fails_on_badly_formed_command_text('move')
-    end
-
-    it 'fails on badly formed report command' do
-      it_fails_on_badly_formed_command_text('report')
-    end
-
-    it 'fails on badly formed place position' do
+    it 'fails on badly formed command - place position' do
       it_fails_on_badly_formed_command_text('PLACE 1,2,NORTH,')
     end
   end
