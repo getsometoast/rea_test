@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe 'rotating the robot right' do
+describe 'rotating the robot right', type: :aat do
 
   context 'heading north' do
 

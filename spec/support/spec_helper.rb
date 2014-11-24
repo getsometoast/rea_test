@@ -19,5 +19,5 @@ require 'rspec'
 RSpec.configure do |config|
   config.include(CommandHelpers)
   config.include(InputParserHelpers)
-  config.include(AcceptanceHelpers)
+  config.include(AcceptanceHelpers, type: :aat)
 end

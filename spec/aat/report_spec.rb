@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe 'reporting a robots position' do
+describe 'reporting a robots position', type: :aat do
 
   context 'after the robot has been placed' do
 

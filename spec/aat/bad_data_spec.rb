@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe 'parsing commands' do
+describe 'parsing commands', type: :aat do
 
   context 'when left command is badly formed' do
 

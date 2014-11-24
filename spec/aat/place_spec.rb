@@ -1,6 +1,6 @@
 require_relative '../support/spec_helper'
 
-describe 'placing the robot' do
+describe 'placing the robot', type: :aat do
 
   context 'on the table' do
 
