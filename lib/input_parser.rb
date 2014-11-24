@@ -14,9 +14,9 @@ class InputParser
   end
 
   def get_command_from(line)
-    type = line.split(/\s/)[0]
+    fail Errors::BadlyFormedCommand unless can_parse? line
 
-    fail Errors::BadlyFormedCommand unless type =~ /LEFT|RIGHT|PLACE|MOVE|REPORT/
+    type = line.split(/\s/)[0]
 
     case type.to_sym
     when :PLACE then @command_factory.place position: get_position_from_line(line)
@@ -29,11 +29,10 @@ class InputParser
 
   def get_position_from_line(line)
     tokens = line.split(/\s/)[1].split(',')
+    Position.new(tokens[0].to_i, tokens[1].to_i, tokens[2].to_sym)
+  end
 
-    fail Errors::BadlyFormedCommand unless tokens[2] =~ /NORTH|SOUTH|EAST|WEST/
-
-    Position.new(tokens[0].to_i,
-                 tokens[1].to_i,
-                 tokens[2].to_sym)
+  def can_parse?(line)
+    line =~ /(MOVE|LEFT|RIGHT|REPORT)|(^PLACE\s\d,\d,(NORTH|SOUTH|EAST|WEST)$)/
   end
 end
