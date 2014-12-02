@@ -48,6 +48,7 @@ it would be out of scope but think my solution suffered because of this decision
 Running the app
 ---------------
 `bundle install`
+
 `rake install`
 
 `./lib/application_runner.rb #{file_name}`
