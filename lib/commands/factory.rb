@@ -8,18 +8,18 @@ module Commands
 
     def place(**args)
       Commands::Place.new robot: @robot,
-                                 position: args[:position],
-                                 table: @table
+                          position: args[:position],
+                          table: @table
     end
 
     def report
       Commands::Report.new robot: @robot,
-                                  output: @output
+                           output: @output
     end
 
     def move
       Commands::Move.new robot: @robot,
-                                table: @table
+                         table: @table
     end
 
     def left
